@@ -1,0 +1,11 @@
+
+{     "ProductAddData" : [
+        { "id": 1, "title": "Enter Product Name" },
+        { "id": 2, "title": "Enter Product Count" },
+        { "id": 3, "title": "Enter Product Popularity" },
+        { "id": 4, "title": "Enter Product Color Count" },
+        { "id": 5, "title": "Enter Product Price" },
+        { "id": 6, "title": "Enter Product Picture" },
+        { "id": 7, "title": "Enter Product Sale Rate" },
+      ]
+}
