@@ -14,7 +14,7 @@ interface Interface extends BoxProps {
 const NavItem = ({ children, ShowInNav, parentPath, path,child }: Interface) => {
   const navigat = useNavigate();
   const [Show, SetShow] = useState(false)
-  const [active,setActive] = useState(!active)
+  const [active,setActive] = useState()
 
   if (!ShowInNav) {
     return null;
