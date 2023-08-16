@@ -8,14 +8,14 @@ interface Interface extends BoxProps {
 
 const MainBackground = ({ children, ...reset }: Interface) => {
   return (
-  <Box
-  bg={"#F8F7FC"}
-  width={"1000px"}
-  borderRadius={"25px"}
-  m={"76px auto"}
-  h={"100vh"}
-  >
-    {children}
+    <Box
+      bg={"#F8F7FC"}
+      width={"1100px"}
+      borderRadius={"25px"}
+      m={"76px auto"}
+      // h={"100vh"}
+    >
+      {children}
     </Box>
   );
 };
