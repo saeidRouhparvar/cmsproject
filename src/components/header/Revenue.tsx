@@ -4,7 +4,8 @@ import React from "react";
 const Revenue = () => {
   return (
     <Flex align={"center"}>
-      <Box fontSize={"28px"} fontWeight={600}>$ 45,365.00</Box>
+      <Box fontSize={"28px"} fontWeight={600}>$</Box>
+      <Box fontSize={"28px"} fontWeight={600}>45,365.00</Box>
       <Flex fontSize={"12px"} fontWeight={500}>
         <Flex ms={"7px"} align={"center"}>
           <Box>
