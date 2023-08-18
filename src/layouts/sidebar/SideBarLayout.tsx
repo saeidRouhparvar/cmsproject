@@ -12,7 +12,7 @@ const SideBarLayout = () => {
 
   return (
     // <Scrollbars style={{width: "100%", height: "100vh"}} >
-    <Box h={"2000px"} bg={"F8FAFF"}
+    <Box h={"2000px"} bg={"#F8FAFF"}
     >
       <Flex
         direction={"column"}
