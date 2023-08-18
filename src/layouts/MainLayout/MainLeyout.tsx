@@ -24,26 +24,27 @@ const MainLeyout = () => {
 
   return (
     <Flex>
-      <Box minH="100vh" w={"full"}>
-        <Box flex={0.25} display={{ base: "none", md: "block" }}>
+        <Flex flex={.25} display={{ base: "none", md: "block" }}>
           <SideBarLayout />
+        </Flex>
+        <Box display={{ base: "block", md: "none" }}>
+          <Drawer
+            size="full"
+            autoFocus={false}
+            placement="left"
+            onClose={onClose}
+            isOpen={isOpen}
+          >
+            <DrawerContent mt={"20px"}>
+              <DrawerCloseButton />
+              <SideBarLayout />
+            </DrawerContent>
+          </Drawer>
         </Box>
-        <Drawer
-          size="full"
-          autoFocus={false}
-          placement="left"
-          onClose={onClose}
-          isOpen={isOpen}
-        >
-          <DrawerContent mt={"20px"}>
-            <DrawerCloseButton />
-            <SideBarLayout />
-          </DrawerContent>
-        </Drawer>
-      </Box>
 
-      <Box
+      <Flex
         flex={1}
+        direction={"column"}
         bg={"#F8F7FC"}
         p={"15px"}
         borderRadius={{ md: "0px 25px 25px 0px ", sm: " 25px  " }}
@@ -70,7 +71,7 @@ const MainLeyout = () => {
         </Flex>
         <HeaderLayout />
         <Products />
-      </Box>
+      </Flex>
     </Flex>
   );
 };
