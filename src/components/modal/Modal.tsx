@@ -29,6 +29,8 @@ interface Interface extends BoxProps {
   type?: any;
   onSubmit?: any;
   edit?: any;
+  onClick?: () => void;
+  deleteAction?: any;
   reset?: any;
 }
 
@@ -38,9 +40,10 @@ const Modals = ({
   children,
   type,
   onSubmit,
+  onClick,
+  deleteAction,
   ...reset
 }: Interface) => {
-  //   const { onClose } = useDisclosure();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -68,11 +71,12 @@ const Modals = ({
               <Button
                 borderRadius={"10px"}
                 bg={"#29CC97"}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  deleteAction();
+                }}
               >
-                {type === "edit" ?
-                  "Edit Product":"OK"
-                }
+                {type === "edit" ? "Edit Product" : "OK"}
               </Button>
               <Button
                 borderRadius={"10px"}
