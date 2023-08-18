@@ -9,12 +9,22 @@ interface Interface extends BoxProps {
   ShowInNav?: any;
   parentPath?: any;
   child?: any;
+  Icon?: any;
+  index?: any;
+  isActive?: any;
 }
 
-const NavItem = ({ children, ShowInNav, parentPath, path,child }: Interface) => {
+const NavItem = ({
+  children,
+  ShowInNav,
+  parentPath,
+  path,
+  child,
+  Icon,
+  isActive,
+}: Interface) => {
   const navigat = useNavigate();
-  const [Show, SetShow] = useState(false)
-  const [active,setActive] = useState()
+  const [Show, SetShow] = useState(false);
 
   if (!ShowInNav) {
     return null;
@@ -22,29 +32,32 @@ const NavItem = ({ children, ShowInNav, parentPath, path,child }: Interface) => 
 
   return (
     <Flex
-      h={"100%"}
-      w={"192px"}
-      bg={
-        !active ? "#FFFFFF" : "#000000"
-      }
-      borderLeftRadius={"25px"}
+    align={"right"}
+      p={"20px"}
+      borderLeftRadius={"5px"}
       direction={"column"}
+      cursor={"pointer"}
       onClick={() => {
         if (child && child.length !== 0) {
-            SetShow(!Show)
-            
+          SetShow(!Show);
         } else {
-            if (parentPath) {
-                navigat((parentPath + path).replaceAll("/*", ""))
-            } else {
-                navigat(path)
-            }
-            // onClose()
+          if (parentPath) {
+            navigat((parentPath + path).replaceAll("/*", ""));
+          } else {
+            navigat(path);
+          }
+          // onClose()
         }
-
-    }}
+      }}
     >
-      <Box>{children}</Box>
+      <Flex
+        gap={"21px"}
+        fontWeight={isActive ? 700 : 500}
+        align={"center"}
+        color={isActive ? "#2A4178" : "#A7B7DD"}
+      >
+        {children}
+      </Flex>
     </Flex>
   );
 };

@@ -11,6 +11,7 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import React from "react";
+import Modals from "../../components/modal/Modal";
 
 const productData = [
   { id: 1, name: "Shoes", price: "26 ", count: "56", img: "" },
@@ -35,6 +36,9 @@ const ProductList = () => {
               <Th>Name</Th>
               <Th>Price</Th>
               <Th>Count</Th>
+              <Th></Th>
+              <Th></Th>
+              <Th></Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -44,17 +48,53 @@ const ProductList = () => {
                 <Td>{ptData.name}</Td>
                 <Td>{ptData.price + "$"}</Td>
                 <Td>{ptData.count}</Td>
-                <Flex  gap={3} align={"center"} ms={"80px"}>
-                  <Button fontSize={"10px"} mt={"18px"} h={"20px"} bg={"#29CC97"}>
-                    Details
-                  </Button>
-                  <Button fontSize={"10px"} mt={"18px"} h={"20px"} bg={"#29CC97"}>
-                    Edit
-                  </Button>
-                  <Button fontSize={"10px"} mt={"18px"} h={"20px"} bg={"#29CC97"}>
-                    Delete
-                  </Button>
-                </Flex>
+                <Td>
+                  <Modals
+                  ModalTitle="Details"
+                  >
+                    <Button
+                      fontSize={"10px"}
+                      mt={"18px"}
+                      h={"20px"}
+                      bg={"#29CC97"}
+                    >
+                      Details
+                    </Button>
+                  </Modals>
+                </Td>
+                <Td>
+                  <Modals
+                    ModalTitle="Edit"
+                    ModalDescription="Please Enter New Product"
+                    type={"edit"}
+                  >
+                    <Button
+                      fontSize={"10px"}
+                      mt={"18px"}
+                      h={"20px"}
+                      bg={"#29CC97"}
+                    >
+                      Edit
+                    </Button>
+                  </Modals>
+                </Td>
+
+                <Td>
+                  <Modals
+                    type={"delete"}
+                    ModalTitle="Delete"
+                    ModalDescription="Do you want to delete?"
+                  >
+                    <Button
+                      fontSize={"10px"}
+                      mt={"18px"}
+                      h={"20px"}
+                      bg={"#29CC97"}
+                    >
+                      Delete
+                    </Button>
+                  </Modals>
+                </Td>
               </Tr>
             ))}
           </Tbody>

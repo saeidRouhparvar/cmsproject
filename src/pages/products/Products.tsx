@@ -1,6 +1,6 @@
-import { Box, Button, Flex, Grid, GridItem } from "@chakra-ui/react";
-import React from "react";
-import ProductAdd from "./ProductAdd";
+import { Box, Button, Grid } from "@chakra-ui/react";
+import ProductList from "./productList";
+import MainInput from "../../components/form/MainInput";
 
 const ProductAddData = [
   { id: 1, title: "Enter Product Name" },
@@ -14,16 +14,24 @@ const ProductAddData = [
 
 function Products() {
   return (
-    <Box w={"100%"} mt={"40px"} ps={"25px"}>
+    <Box mt={"40px"} ps={{ base: "", md: "25px" }} w={"full"}>
       <Box mb={"15px"} fontSize={"28px"} fontWeight={600}>
         Add New Product
       </Box>
-      <Grid templateColumns={"repeat(2,1fr)"} gap={4}>
+      <Grid
+        templateColumns={{ base: "repeat(1,1fr)", md: "repeat(2,1fr)" }}
+        gap={4}
+      >
         {ProductAddData.map((addData: any) => (
-          <ProductAdd title={addData.title} />
+          <MainInput title={addData.title} />
         ))}
-        <Button bg={"#29CC97"}>Register Product</Button>
+        <Button borderRadius={"15px"} bg={"#29CC97"}>
+          Register Product
+        </Button>
       </Grid>
+      <Box mt={"60px"}>
+        <ProductList />
+      </Box>
     </Box>
   );
 }

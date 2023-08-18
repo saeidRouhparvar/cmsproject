@@ -6,7 +6,7 @@ interface Interface extends BoxProps {
   title?: string;
 }
 
-const ProductAdd = ({ title, ...reset }: Interface) => {
+const MainInput = ({ title, ...reset }: Interface) => {
   return (
     <Box >
       <Input
@@ -22,4 +22,4 @@ const ProductAdd = ({ title, ...reset }: Interface) => {
   );
 };
 
-export default ProductAdd;
+export default MainInput;

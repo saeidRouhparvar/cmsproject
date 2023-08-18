@@ -1,15 +1,13 @@
-import { useState } from "react";
 import { Box } from "@chakra-ui/react";
-import SideBarLayout from "./layouts/sidebar/SideBarLayout";
-import MainBackground from "./components/mainBg/MainBackground";
+import MainLeyout from "./layouts/MainLayout/MainLeyout";
 
 function App() {
+  // const router = useRoutes(Routes);
+
   return (
-    <>
-      <MainBackground>
-        <SideBarLayout />
-      </MainBackground>
-    </>
+    <Box p={"1rem"} m={"30px auto"} maxW={"1440px"}>
+      <MainLeyout />
+    </Box>
   );
 }
 

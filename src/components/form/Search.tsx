@@ -23,7 +23,9 @@ const Search = () => {
         </Box>
       </InputLeftElement>
       <Input
+      // w={"350px"}
         placeholder="Search"
+        px={"100px"}
         h={"40px"}
         borderRadius={"10px"}
         bg={"#FFF"}
