@@ -24,7 +24,7 @@ const MainLeyout = () => {
 
   return (
     <Flex>
-        <Flex flex={.25} display={{ base: "none", md: "block" }}>
+        <Flex flex={.1} display={{ base: "none", md: "block" }}>
           <SideBarLayout />
         </Flex>
         <Box display={{ base: "block", md: "none" }}>
@@ -43,7 +43,7 @@ const MainLeyout = () => {
         </Box>
 
       <Flex
-        flex={1}
+        flex={.9}
         direction={"column"}
         bg={"#F8F7FC"}
         p={"15px"}
