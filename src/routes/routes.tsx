@@ -18,7 +18,7 @@ const Order = React.lazy(() => import("../pages/order/Order"));
 const Product = React.lazy(() => import("../pages/products/Products"));
 const Users = React.lazy(() => import("../pages/users/Users"));
 
-const Routes = [
+const IndexRoutes = [
   {
     path: "/*",
     component: SideBarLayout,
@@ -76,4 +76,4 @@ const Routes = [
   },
 ];
 
-export { Routes };
+export { IndexRoutes };
