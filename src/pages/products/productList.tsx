@@ -13,10 +13,12 @@ import {
 import { useEffect, useState } from "react";
 import Modals from "../../components/modal/Modal";
 import EmptyError from "../../components/error/EmptyError";
+import { GetIRNumber } from "../../components/Utils";
 
 const ProductList = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [productID, setProductID] = useState(null);
+  const [productInfo, setProductInfo] = useState({});
 
   const getAllProducts = () => {
     fetch("http://localhost:3000/api/products/")
@@ -48,8 +50,8 @@ const ProductList = () => {
               <Tr>
                 <Th>Image</Th>
                 <Th>Name</Th>
-                <Th>Price</Th>
                 <Th>Count</Th>
+                <Th>Price</Th>
                 <Th></Th>
                 <Th></Th>
                 <Th></Th>
@@ -64,15 +66,25 @@ const ProductList = () => {
                   <Td></Td>
                   <Td>{product.title}</Td>
                   <Td>{product.count}</Td>
-                  <Td>{product.price + "$"}</Td>
-                  <Td>{product.sale}</Td>
+                  <Td>{GetIRNumber(parseInt(product.price)) + "$"}</Td>
+                  
                   <Td>
-                    <Modals ModalTitle="Details">
+                    <Modals
+                      type={"detail"}
+                      name={product.title}
+                      price={GetIRNumber(parseInt(product.price))}
+                      count={product.count}
+                      sale={product.sale}
+                      color={product.colors}
+                      popularity={product.popularity}
+                      ModalTitle="Details"
+                    >
                       <Button
                         fontSize={"10px"}
                         mt={"18px"}
                         h={"20px"}
                         bg={"#29CC97"}
+                        onClick={() => setProductInfo(product)}
                       >
                         Details
                       </Button>
