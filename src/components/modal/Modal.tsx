@@ -11,15 +11,20 @@ import {
   BoxProps,
   Text,
   Box,
+  Flex,
+  Input,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import MainInput from "../form/MainInput";
 
 const productPlaceholder = [
-  { id: 1, placholder: "Product Name" },
-  { id: 1, placholder: "Product Count" },
+  { id: 1, placholder: "Product Title" },
   { id: 1, placholder: "Product Price" },
+  { id: 1, placholder: "Product Count" },
   { id: 1, placholder: "Product Image" },
+  { id: 1, placholder: "Product Popularity" },
+  { id: 1, placholder: "Product Sales" },
+  { id: 1, placholder: "Product Colors" },
 ];
 
 interface Interface extends BoxProps {
@@ -31,6 +36,13 @@ interface Interface extends BoxProps {
   edit?: any;
   onClick?: () => void;
   deleteAction?: any;
+  name?:any
+  count?:any
+  price?:any
+  sale?:any
+  color?:any
+  popularity?:any
+  sale?:any
   reset?: any;
 }
 
@@ -42,6 +54,12 @@ const Modals = ({
   onSubmit,
   onClick,
   deleteAction,
+  name,
+  count,
+  price,
+  sale,
+  color,
+  popularity,
   ...reset
 }: Interface) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +68,7 @@ const Modals = ({
     <Box {...reset}>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent border={"3px solid black.300"} p={"20px"}>
           <ModalHeader fontSize={"28px"} fontWeight={600}>
             {ModalTitle}
           </ModalHeader>
@@ -67,6 +85,46 @@ const Modals = ({
               productPlaceholder.map((item: any) => (
                 <MainInput mt={"30px"} title={item.placholder} />
               ))}
+            {type === "detail" && (
+              <Flex direction={"column"} gap={4}>
+                <Flex gap={3} align={"center"} borderBottom={"2px solid gray"} pb={5}>
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Name :
+                  </Box>
+                  <Box>{name}</Box>
+                </Flex>
+                <Flex gap={3} align={"center"}  borderBottom={"2px solid gray"} pb={5}>
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Count :
+                  </Box>
+                  <Box>{count}</Box>
+                </Flex>
+                <Flex gap={3} align={"center"}  borderBottom={"2px solid gray"} pb={5}>
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Price :
+                  </Box>
+                  <Box>{price + "$"}</Box>
+                </Flex>
+                <Flex gap={3} align={"center"}  borderBottom={"2px solid gray"} pb={5}>
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Color :
+                  </Box>
+                  <Box>{color}</Box>
+                </Flex>
+                <Flex gap={3} align={"center"}  borderBottom={"2px solid gray"} pb={5}>
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Popularity :
+                  </Box>
+                  <Box>{popularity}</Box>
+                </Flex>
+                <Flex gap={3} align={"center"}  >
+                  <Box fontSize={"22px"} fontWeight={500}>
+                    Sale :
+                  </Box>
+                  <Box>{sale}</Box>
+                </Flex>
+              </Flex>
+            )}
             <Box mt={"30px"}>
               <Button
                 borderRadius={"10px"}
