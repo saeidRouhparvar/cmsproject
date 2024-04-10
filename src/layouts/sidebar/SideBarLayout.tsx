@@ -22,7 +22,7 @@ const SideBarLayout = () => {
           {OnOfIcon}
         </Flex>
         {sideList.map((sideListItem: any, index: any) => (
-          <Box onClick={() => setActive(index)}>
+          <Box onClick={() => setActive(index)} key={index}>
             <NavItem
               isActive={index == active}
               display={"flex"}
