@@ -23,7 +23,7 @@ function Products() {
         gap={4}
       >
         {ProductAddData.map((addData: any) => (
-          <MainInput title={addData.title} />
+          <MainInput title={addData.title} key={addData.id}/>
         ))}
         <Button borderRadius={"15px"} bg={"#29CC97"}>
           Register Product
